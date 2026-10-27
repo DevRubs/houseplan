@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mountain House · 70 sqm × 4 floors · parking on 3F</title>
+  <meta name="description" content="Interactive 3D floor plan of a four-storey mountain house. 70 sqm per floor, with the road meeting the third floor so the garage is at street level.">
+  <meta name="theme-color" content="#14201a">
+  <meta property="og:title" content="Mountain House · 4 floors, parking on 3F">
+  <meta property="og:description" content="Orbit the 3D model, flip through each floor plan, and see how the slope works.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8b34b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8 3 4 8 5-5 5 15H2L8 3z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.js" } }
+  </script>
+</head>
+<body>
+  <div class="app">
+
+    <aside class="side" aria-label="Project and controls">
+      <p class="kicker">Concept · Baguio mountain lot</p>
+      <h1>Mountain house<span id="sizeLabel">70 sqm × 4 floors</span></h1>
+      <p class="lede">The road runs at the third floor. Drive straight into the garage, sleep one level below, live on top for the view.</p>
+
+      <dl class="stats" id="stats"></dl>
+
+      <h2 class="label">Size</h2>
+      <div class="seg wide size-seg" id="sizeSeg" role="group" aria-label="House size"></div>
+
+      <h2 class="label">Floors</h2>
+      <div class="floors" id="floorBtns" role="group" aria-label="Choose a floor"></div>
+
+      <h2 class="label">Model</h2>
+      <div class="seg wide" id="modeSeg" role="group" aria-label="Walls">
+        <button type="button" data-mode="cutaway" aria-pressed="true">Cutaway</button>
+        <button type="button" data-mode="exterior" aria-pressed="false">Exterior</button>
+      </div>
+
+      <label class="slider" for="explode">
+        <span>Exploded view <b id="explodeVal">18%</b></span>
+        <input type="range" id="explode" min="0" max="100" value="18">
+      </label>
+
+      <div class="chips" id="chips"></div>
+
+      <p class="note" id="note"></p>
+    </aside>
+
+    <main class="stage">
+      <div class="stage-bar">
+        <div class="seg" id="stageTabs" role="tablist" aria-label="View type"></div>
+        <div class="seg" id="viewBtns" aria-label="Camera"></div>
+        <div class="seg" id="timeBtns" aria-label="Time of day"></div>
+        <button type="button" class="btn" id="snap"></button>
+      </div>
+
+      <div class="viewport" id="viewport">
+        <canvas id="scene" aria-label="3D model of the house. Drag to orbit, scroll to zoom."></canvas>
+        <div class="plan-stage" id="planStage" hidden></div>
+        <div class="hud" id="hud"></div>
+        <div class="fallback" id="fallback" hidden></div>
+      </div>
+    </main>
+
+    <aside class="info" aria-label="Floor details">
+      <h2 class="label">Section through the slope</h2>
+      <div class="card" id="miniSection"></div>
+
+      <div class="info-head">
+        <div>
+          <p class="kicker" id="infoTag"></p>
+          <h2 id="infoTitle"></h2>
+        </div>
+      </div>
+      <p class="sub" id="infoDesc"></p>
+
+      <div class="card paper" id="miniPlan"></div>
+
+      <h2 class="label">Rooms</h2>
+      <ul class="rooms" id="roomList"></ul>
+      <div class="total"><span>Floor total</span><strong id="floorTotal">70.0 m²</strong></div>
+
+      <h2 class="label">How you move through it</h2>
+      <ol class="flow" id="flow"></ol>
+    </aside>
+
+  </div>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

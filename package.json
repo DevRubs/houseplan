@@ -1,0 +1,11 @@
+{
+  "name": "mountain-house",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive 3D floor plan: 70 sqm per floor, 4 floors, parking on the 3rd floor of a mountain lot.",
+  "scripts": {
+    "start": "npx serve .",
+    "check": "node scripts/check.mjs"
+  }
+}
