@@ -9,6 +9,17 @@ Two sizes, switch in the sidebar or with a URL param:
 | Standard | `?plan=70` (default) | 10 × 7 m | 70 m² | 2 cars |
 | Compact | `?plan=50` | 7 × 7.2 m | 50.4 m² | 1 car |
 
+### Compact layout (revised 2026-10-28)
+
+| Floor | What is on it |
+|-------|---------------|
+| 4F | Water tank, laundry, tambayan. Half open: enclosed lounge on the east, uncovered terrace on the west |
+| 3F | Road level. One-car parking, foyer, stair |
+| 2F | Kitchen, pantry, dining, living, CR |
+| 1F | Three bedrooms, one shared CR, closet, study nook |
+
+The two CRs sit one above the other so the plumbing stacks. A tank at the top of the house only pressurises the floors below it, so the 4F laundry will want a booster pump or a tank raised on a stand.
+
 Concept layout only. Not for construction: a real build on a slope needs a soil test, a structural engineer, retaining walls and drainage design.
 
 ## Run locally

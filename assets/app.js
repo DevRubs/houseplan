@@ -1,4 +1,4 @@
-import { FLOORS, TOTALS, css, ZONE, W, D, VARIANT } from './data.js';
+import { FLOORS, TOTALS, css, ZONE, W, D, VARIANT, IS_COMPACT } from './data.js';
 import { icon } from './icons.js';
 import { planSVG, sectionSVG } from './plan.js';
 
@@ -13,6 +13,9 @@ const floorById = (id) => FLOORS.find((f) => f.id === id);
 const nCars = VARIANT.cars;
 document.title = `Mountain House · ${VARIANT.title} · parking on 3F`;
 $('#sizeLabel').textContent = VARIANT.title;
+if (IS_COMPACT)
+  document.querySelector('.lede').textContent =
+    'The road runs at the third floor. Park on the flat, sleep two levels down, cook and live one level down, and hang out on the top floor.';
 $('#sizeSeg').innerHTML = [
   ['70', 'Standard', '70 sqm · 2 cars'],
   ['50', 'Compact', '50 sqm · 1 car'],
@@ -77,13 +80,22 @@ $('#hud').innerHTML = `
 
 $('#note').innerHTML = `${icon('warn', 16)}<span>Layout concept only, not for construction. A real build on a slope needs a soil test, a structural engineer, retaining walls and drainage design.</span>`;
 
-$('#flow').innerHTML = [
-  ['car', '<b>Arrive on 3F.</b> Road, garage, foyer. All flat.'],
-  ['up', '<b>Up one flight (4F).</b> Kitchen, dining, living, terrace.'],
-  ['down', '<b>Down one flight (2F).</b> All bedrooms, away from road noise.'],
-  ['down', `<b>Down again (1F).</b> ${VARIANT.cars > 1 ? 'Family room, guest suite, gym, laundry.' : 'Family room, guest room, laundry, storage.'}`],
-  ['stairs', 'One U-shaped stair in the north-east corner of every floor, so plumbing and structure stack.'],
-]
+const FLOW = IS_COMPACT
+  ? [
+      ['car', '<b>Arrive on 3F.</b> Road, parking, foyer. All flat.'],
+      ['up', '<b>Up one flight (4F).</b> Water tank, laundry, tambayan with a half-open terrace.'],
+      ['down', '<b>Down one flight (2F).</b> Kitchen, pantry, dining, living, CR.'],
+      ['down', '<b>Down again (1F).</b> Three bedrooms and a CR, away from road noise.'],
+      ['stairs', 'One U-shaped stair in the north-east corner of every floor. The two CRs sit one above the other so plumbing stacks.'],
+    ]
+  : [
+      ['car', '<b>Arrive on 3F.</b> Road, garage, foyer. All flat.'],
+      ['up', '<b>Up one flight (4F).</b> Kitchen, dining, living, terrace.'],
+      ['down', '<b>Down one flight (2F).</b> All bedrooms, away from road noise.'],
+      ['down', '<b>Down again (1F).</b> Family room, guest suite, gym, laundry.'],
+      ['stairs', 'One U-shaped stair in the north-east corner of every floor, so plumbing and structure stack.'],
+    ];
+$('#flow').innerHTML = FLOW
   .map(([ic, t]) => `<li>${icon(ic, 17)}<span>${t}</span></li>`)
   .join('');
 

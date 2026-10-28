@@ -187,54 +187,55 @@ const FLOORS_50 = [
   {
     id: 1,
     short: '1F',
-    name: 'Floor 1 · Downhill base',
-    tag: 'Family + guest level',
+    name: 'Floor 1 · Bedrooms',
+    tag: '3 bedrooms + CR',
     color: 0x5b8def,
     base: 0,
-    winWalls: ['S'],
-    desc: 'Lowest level, dug into the slope. A family room that opens to the valley, a small guest room, laundry and storage.',
+    winWalls: ['S', 'W', 'E'],
+    desc: 'Lowest level, the coolest and quietest. Three bedrooms in a row facing the valley, with one shared CR and a closet buried on the uphill side.',
     rooms: [
-      R('Guest Bath', 0, 0, 2.4, 3.2, 'wet', 'bath'),
-      R('Laundry', 2.4, 0, 1.4, 3.2, 'service', 'laundry'),
-      R('Storage', 3.8, 0, 1.4, 3.2, 'service', 'storage'),
+      R('Closet', 0, 0, 1.8, 3.2, 'service', 'closet'),
+      R('Study Nook', 1.8, 0, 1.8, 3.2, 'work', 'desk'),
+      R('CR', 3.6, 0, 1.6, 3.2, 'wet', 'bath'),
       R('Stair', 5.2, 0, 1.8, 3.2, 'stair', 'stair'),
-      R('Guest Room', 0, 3.2, 2.4, 4.0, 'sleep', 'bed'),
-      R('Family Room', 2.4, 3.2, 4.6, 4.0, 'living', 'sofa'),
+      R('Hall', 0, 3.2, 7, 1.0, 'circ', 'hall'),
+      R('Bedroom 1', 0, 4.2, 2.4, 3.0, 'sleep', 'bed'),
+      R('Bedroom 2', 2.4, 4.2, 2.3, 3.0, 'sleep', 'bed'),
+      R('Bedroom 3', 4.7, 4.2, 2.3, 3.0, 'sleep', 'bed'),
     ],
     doors: [
-      hd(3.2, 0.8, 0.8),
-      hd(3.2, 2.55, 0.8),
-      hd(3.2, 3.95, 0.8),
+      hd(3.2, 0.5, 0.8),
+      hd(3.2, 2.3, 0.8),
+      hd(3.2, 3.9, 0.8),
       hd(3.2, 5.3, 1.6, { k: 'open' }),
-      vd(2.4, 4.5, 0.9, { s: -1 }),
-      hd(7.2, 3.4, 2.8, { k: 'slider' }),
+      hd(4.2, 0.75, 0.9, { s: 1 }),
+      hd(4.2, 3.1, 0.9, { s: 1 }),
+      hd(4.2, 5.4, 0.9, { s: 1, f: -1 }),
     ],
   },
   {
     id: 2,
     short: '2F',
-    name: 'Floor 2 · Sleep level',
-    tag: 'Two bedrooms, quiet + cool',
+    name: 'Floor 2 · Kitchen + living',
+    tag: 'Kitchen, pantry, dining, living, CR',
     color: 0x7fb069,
     base: 3,
     winWalls: ['S', 'W', 'E'],
-    desc: 'Both bedrooms sit one floor below the road, away from street noise. The bath and closet are buried on the uphill side.',
+    desc: 'The daily floor. Galley kitchen with a walk-in pantry on the cool uphill side, then dining and living open to each other and to the valley. The CR sits above the bedroom CR so the plumbing stacks.',
     rooms: [
-      R('Closet', 0, 0, 1.6, 3.2, 'service', 'closet'),
-      R('Bath', 1.6, 0, 2.0, 3.2, 'wet', 'bath'),
-      R('Study Nook', 3.6, 0, 1.6, 3.2, 'work', 'desk'),
+      R('Kitchen', 0, 0, 2.4, 3.2, 'living', 'kitchen'),
+      R('Pantry', 2.4, 0, 1.2, 3.2, 'service', 'storage'),
+      R('CR', 3.6, 0, 1.6, 3.2, 'wet', 'bath'),
       R('Stair', 5.2, 0, 1.8, 3.2, 'stair', 'stair'),
-      R('Hall', 0, 3.2, 7, 1.0, 'circ', 'hall'),
-      R('Primary Bedroom', 0, 4.2, 3.8, 3.0, 'sleep', 'bed'),
-      R('Bedroom 2', 3.8, 4.2, 3.2, 3.0, 'sleep', 'bed'),
+      R('Dining', 0, 3.2, 3.0, 4.0, 'living', 'table'),
+      R('Living Room', 3.0, 3.2, 4.0, 4.0, 'living', 'sofa'),
     ],
     doors: [
-      hd(3.2, 0.4, 0.8),
-      hd(3.2, 2.2, 0.8),
+      vd(2.4, 0.8, 0.8),
+      hd(3.2, 0.3, 1.8, { k: 'open' }),
       hd(3.2, 3.9, 0.8),
       hd(3.2, 5.3, 1.6, { k: 'open' }),
-      hd(4.2, 2.7, 0.9, { s: 1, f: -1 }),
-      hd(4.2, 4.4, 0.9, { s: 1 }),
+      vd(3.0, 4.4, 2.4, { k: 'open' }),
     ],
   },
   {
@@ -267,25 +268,25 @@ const FLOORS_50 = [
   {
     id: 4,
     short: '4F',
-    name: 'Floor 4 · Living + view',
-    tag: 'Top floor, panorama deck',
+    name: 'Floor 4 · Laundry + tambayan',
+    tag: 'Water tank, laundry, half-open hangout',
     color: 0xef7d54,
     base: 9,
     winWalls: ['N', 'S', 'W', 'E'],
-    desc: 'Above the road, so it gets the whole valley. Open kitchen, dining and living, with a small covered terrace on the downhill side.',
+    desc: 'Top floor, above the road. Water tank and laundry on the uphill side. The tambayan is half open: an enclosed lounge on the east, an uncovered terrace on the west for fresh air and drying clothes.',
     rooms: [
-      R('Kitchen', 0, 0, 3.0, 3.2, 'living', 'kitchen'),
-      R('Dining Nook', 3.0, 0, 2.2, 3.2, 'living', 'table'),
+      R('Water Tank', 0, 0, 2.0, 3.2, 'service', 'tank'),
+      R('Laundry', 2.0, 0, 3.2, 3.2, 'service', 'laundry'),
       R('Stair', 5.2, 0, 1.8, 3.2, 'stair', 'stair'),
-      R('View Terrace', 0, 3.2, 2.6, 4.0, 'outdoor', 'terrace'),
-      R('Living Room', 2.6, 3.2, 4.4, 4.0, 'living', 'sofa'),
+      R('Open Terrace', 0, 3.2, 3.5, 4.0, 'outdoor', 'terrace'),
+      R('Tambayan', 3.5, 3.2, 3.5, 4.0, 'living', 'lounge'),
     ],
     doors: [
-      vd(3.0, 0.4, 2.4, { k: 'open' }),
-      hd(3.2, 0.3, 2.0, { k: 'slider' }),
-      vd(2.6, 4.4, 2.4, { k: 'slider' }),
-      hd(3.2, 3.2, 1.8, { k: 'open' }),
+      hd(3.2, 0.6, 0.8),
+      hd(3.2, 2.2, 1.2, { k: 'slider' }),
+      hd(3.2, 4.0, 0.9),
       hd(3.2, 5.3, 1.6, { k: 'open' }),
+      vd(3.5, 4.4, 2.4, { k: 'slider' }),
     ],
   },
 ];
@@ -361,7 +362,7 @@ export const TOTALS = {
 /* ---------- walls + openings ---------- */
 const sideOf = (o, at) => (o === 'H' ? (at === 0 ? 'N' : at === D ? 'S' : 'I') : at === 0 ? 'W' : at === W ? 'E' : 'I');
 
-const WIN_TYPES = new Set(['bed', 'sofa', 'table', 'kitchen', 'desk', 'gym', 'bath']);
+const WIN_TYPES = new Set(['bed', 'sofa', 'table', 'kitchen', 'desk', 'gym', 'bath', 'laundry', 'lounge']);
 
 function windowsFor(f) {
   const out = [];
@@ -546,6 +547,31 @@ function laundry(r) {
     it(r.x + r.w - 0.4, r.z + 0.45, 0.6, 0.62, 0, 0.85, 0xe3e8ec),
   ];
 }
+/* blue poly water tank on a steel stand, with a pump beside it */
+function tank(r) {
+  const cx = r.x + r.w / 2,
+    cz = r.z + r.d / 2 - 0.2,
+    d = Math.min(1.4, r.w - 0.5);
+  return [
+    it(cx, cz, d + 0.1, d + 0.1, 0, 0.45, DARK),
+    it(cx, cz, d, d, 0.45, 1.6, 0x3b7dd8, { shape: 'cyl' }),
+    it(cx, cz, d * 0.5, d * 0.5, 2.05, 0.1, 0x2a5fa8, { shape: 'cyl' }),
+    it(r.x + r.w - 0.35, r.z + r.d - 0.4, 0.4, 0.3, 0, 0.35, 0x6b7680),
+  ];
+}
+/* tambayan: built-in L bench, rug and a low table */
+function lounge(r) {
+  const cx = r.x + r.w / 2,
+    cz = r.z + r.d / 2;
+  return [
+    it(cx - 0.1, cz - 0.1, 2.3, 2.3, 0, 0.02, 0xc9b79a),
+    it(r.x + r.w - 0.32, r.z + r.d / 2 + 0.2, 0.5, r.d - 1.3, 0, 0.45, SOFA),
+    it(r.x + r.w - 0.09, r.z + r.d / 2 + 0.2, 0.16, r.d - 1.3, 0.45, 0.4, SOFA2),
+    it(r.x + r.w / 2 - 0.4, r.z + r.d - 0.32, r.w - 1.7, 0.5, 0, 0.45, SOFA),
+    it(r.x + r.w / 2 - 0.4, r.z + r.d - 0.09, r.w - 1.7, 0.16, 0.45, 0.4, SOFA2),
+    it(cx - 0.1, cz - 0.1, 0.9, 0.9, 0, 0.4, WOOD),
+  ];
+}
 function storage(r) {
   return [
     it(r.x + r.w - 0.25, r.z + r.d / 2, 0.4, r.d - 0.5, 0, 1.8, SHELF),
@@ -628,6 +654,8 @@ const BY_TYPE = {
   desk,
   gym,
   laundry,
+  tank,
+  lounge,
   storage,
   closet,
   hall,
